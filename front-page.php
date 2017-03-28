@@ -86,7 +86,6 @@ get_header(); ?>
 
 	<a href="<?php the_field( 'box_1_link' );?>">
 	<div id="feature_1_box" class="feature_box">
-		<div class="feature_box_title"><?php the_field( 'box_1_title' ); ?></div>
 		<div class="feature_box_image">
 			<?php
 			$image = get_field( 'box_1_image' );
@@ -94,14 +93,14 @@ get_header(); ?>
 			echo '<img src="' . $image['url'] . '" ' . $src_set . '/>';
 			?>
 		</div>
-		<div class=feature_box_caption><?php the_field( 'feature_1_box_caption' ); ?></div>
+		<div class="feature_box_title"><?php the_field( 'box_1_title' ); ?></div>
+		<div class=feature_box_caption><?php the_field( 'box_1_caption' ); ?></div>
 	</div>
 </a>
 
 
 <a href="<?php the_field( 'box_2_link' );?>">
 <div id="feature_2_box" class="feature_box">
-	<div class="feature_box_title"><?php the_field( 'box_2_title' ); ?></div>
 	<div class="feature_box_image">
 		<?php
 		$image = get_field( 'box_2_image' );
@@ -109,7 +108,8 @@ get_header(); ?>
 		echo '<img src="' . $image['url'] . '" ' . $src_set . '/>';
 		?>
 	</div>
-	<div class=feature_box_caption><?php the_field( 'feature_2_box_caption' ); ?></div>
+	<div class="feature_box_title"><?php the_field( 'box_2_title' ); ?></div>
+	<div class=feature_box_caption><?php the_field( 'box_2_caption' ); ?></div>
 </div>
 </a>
 
