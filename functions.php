@@ -2,72 +2,72 @@
 /**
  * VNA Foundation functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * @link https://developer.wordpress.org/themes/basics/theme-functions
  *
  * @package VNA_Foundation
  */
 
 if ( ! function_exists( 'vna_setup' ) ) :
-/**
+	/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function vna_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on VNA Foundation, use a find and replace
-	 * to change 'vna' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'vna', get_template_directory() . '/languages' );
+	function vna_setup() {
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on VNA Foundation, use a find and replace
+		 * to change 'vna' to the name of your theme in all the template files.
+		 */
+		load_theme_textdomain( 'vna', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
+		/*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
+		add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'vna' ),
-	) );
+		// This theme uses wp_nav_menu() in one location.
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Primary', 'vna' ),
+		) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+			/*
+			 * Switch default core markup for search form, comment form, and comments
+			 * to output valid HTML5.
+			 */
+			add_theme_support( 'html5', array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'vna_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+			// Set up the WordPress core custom background feature.
+			add_theme_support( 'custom-background', apply_filters( 'vna_custom_background_args', array(
+				'default-color' => 'ffffff',
+				'default-image' => '',
+			) ) );
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
-}
+			// Add theme support for selective refresh for widgets.
+			add_theme_support( 'customize-selective-refresh-widgets' );
+	}
 endif;
 add_action( 'after_setup_theme', 'vna_setup' );
 
@@ -114,8 +114,47 @@ function vna_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( is_front_page() || is_page_template( 'slideshow-page.php' ) ) {
+		wp_enqueue_style( 'flexslider-css', get_stylesheet_directory_uri() . '/flexslider/flexslider.css' );
+	}
+
 }
 add_action( 'wp_enqueue_scripts', 'vna_scripts' );
+
+function wagw_flexslider_gallery_scripts() {
+	if ( is_front_page() || is_page_template( 'slideshow-page.php' ) ) {
+			wp_enqueue_script( 'jquery' );
+	        wp_enqueue_script( 'jquery-easing', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',array( 'jquery' ), false, false );
+			wp_register_script( 'flexslider', get_stylesheet_directory_uri() . '/flexslider/jquery.flexslider-min.js', array( 'jquery', 'jquery-easing' ), false, false );
+			wp_register_script( 'load_flex', get_stylesheet_directory_uri() . '/js/load-flex.js', array( 'jquery', 'flexslider' ), false, false );
+
+			$speed = get_field( 'slideshow_speed' );
+			$animation = get_field( 'animation_speed' );
+			$animation_type = get_field( 'animation_type' );
+			$easing = get_field( 'easing_method' );
+			$controlNav = $directionNav = false;
+		if ( get_field( 'nextprev_arrows' ) ) { $directionNav = true; }
+		if ( get_field( 'navigation_dots' ) ) { $controlNav = true; }
+		if ( get_field( 'slider_carousel' ) ) { $controlNav = 'thumbnails'; }
+
+			// get the settings for this post
+
+			$args = array(
+			'animation'       => $animation_type,
+			'animationSpeed'  => $animation,
+			'slideshowSpeed'  => $speed,
+			'controlNav'      => $controlNav,
+			'directionNav'    => $directionNav,
+			'easing'          => $easing,
+
+			 );
+			wp_enqueue_script( 'flexslider' );
+			wp_localize_script( 'load_flex', 'wagw', $args );
+			wp_enqueue_script( 'load_flex' );
+	}
+}
+	add_action( 'wp_enqueue_scripts', 'wagw_flexslider_gallery_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -141,3 +180,42 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+function vna_get_recent_posts( $count ) {
+	$args = array(
+		'posts_per_page' => $count,
+		'post_type' => 'post',
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'post_status' => array( 'publish' ),
+	);
+		$q = new WP_QUERY( $args );
+		$count = 0;
+	if (	$q->have_posts() ) {
+
+		while ( $q->have_posts() ) {
+			if ( ($count % 2 ) == 0 ) {
+				echo '<div class="fp-post-row">';
+			}
+			echo '<div class="fp-post">';
+			$q->the_post();
+			if ( has_post_thumbnail() ) {
+				echo '<div class="fp-thumbnail">';
+				echo '<a href="' . get_the_permalink() . '">';
+				the_post_thumbnail( 'full' );
+				echo '</a>';
+				echo '</div>';
+			}
+			echo '<div class="fp-post-content">';
+			echo '<h3 class="fp_post_title"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
+			echo '</div>';
+
+			echo '</div>';
+			if ( ($count % 2 ) != 0 ) {
+				echo '</div> <!--class="fp-post-row"-->';
+			}
+						$count++;
+		}
+		wp_reset_postdata();
+	}
+}
