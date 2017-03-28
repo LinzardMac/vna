@@ -194,7 +194,7 @@ function vna_get_recent_posts( $count ) {
 	if (	$q->have_posts() ) {
 
 		while ( $q->have_posts() ) {
-			if ( ($count % 2 ) == 0 ) {
+			if ( ($count % 3 ) == 0 ) {
 				echo '<div class="fp-post-row">';
 			}
 			echo '<div class="fp-post">';
@@ -211,7 +211,7 @@ function vna_get_recent_posts( $count ) {
 			echo '</div>';
 
 			echo '</div>';
-			if ( ($count % 2 ) != 0 ) {
+			if ( ($count % 3 ) == 2 ) {
 				echo '</div> <!--class="fp-post-row"-->';
 			}
 						$count++;

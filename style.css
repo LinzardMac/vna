@@ -746,6 +746,15 @@ a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+
+.site {
+	max-width:1200px;
+	margin: 0 auto;
+	padding: 0 .5em 0 .5em;
+}
+.site-content {
+	padding: 0 1em 0 1em ;
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -892,4 +901,51 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*
+ * front page specific stuff
+ */
+
+.feature_box {
+	width: 45%;
+	float:left;
+	position:relative;
+}
+#feature_1_box {
+	margin-right: 5%;
+}
+.feature_box_title {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    color: #fff;
+    font-size: 25px;
+    text-shadow: 1px 1px 3px #000;
+}
+.feature_box_caption {
+    background: #214162;
+    color: #fff;
+    padding: 1em;
+    min-height: 5em;
+		margin-top:-.5em
+}
+.fp-post {
+    width: 30%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    float: left;
+		position:relative;
+}
+h3.fp_post_title a {
+	color: #fff;
+	text-shadow: 1px 1px 3px #000;
+	text-decoration:none;
+}
+.fp-post-content {
+    position: absolute;
+    top: 0;
+    left: 1em;
+    font-size: 20px;
+    line-height: 1.2;
 }
