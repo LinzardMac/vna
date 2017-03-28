@@ -84,7 +84,7 @@ get_header(); ?>
 
 <div id="feature_boxes_area">
 
-	<a href="<?php the_field( 'box_1_link' );?>";
+	<a href="<?php the_field( 'box_1_link' );?>">
 	<div id="feature_1_box" class="feature_box">
 		<div class="feature_box_title"><?php the_field( 'box_1_title' ); ?></div>
 		<div class="feature_box_image">
@@ -99,7 +99,7 @@ get_header(); ?>
 </a>
 
 
-<a href="<?php the_field( 'box_2_link' );?>";
+<a href="<?php the_field( 'box_2_link' );?>">
 <div id="feature_2_box" class="feature_box">
 	<div class="feature_box_title"><?php the_field( 'box_2_title' ); ?></div>
 	<div class="feature_box_image">
