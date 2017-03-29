@@ -47,7 +47,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: sans-serif;
+	font-family: 'mr-eaves-xl-modern', sans-serif;
+	font-size: 16px;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
 }
@@ -109,11 +110,6 @@ strong {
 
 dfn {
 	font-style: italic;
-}
-
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
 }
 
 mark {
@@ -266,7 +262,7 @@ input,
 select,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: 'mr-eaves-xl-modern',sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -275,14 +271,21 @@ textarea {
 h1,
 h2,
 h3,
-h4,
+h4 {
+	font-family: 'Oswald', sans-serif;
+}
 h5,
 h6 {
-	clear: both;
-}
+	font-family: 'mr-eaves-xl-modern';
 
+}
+h1 {
+	font-size: 1.5em;
+	margin: 0.67em 0;
+	font-weight:400;
+}
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: .5em;
 }
 
 dfn,
@@ -536,6 +539,7 @@ a:active {
 	display: block;
 	float: left;
 	width: 100%;
+	font-family: 'Oswald', sans-serif;
 }
 
 .main-navigation ul {
