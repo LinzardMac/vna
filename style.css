@@ -759,6 +759,14 @@ a:active {
 .site-content {
 	padding: 0 1em 0 1em ;
 }
+footer#colophon {
+    background-color: #214162;
+    color: #fff;
+}
+footer#colophon a {
+    color: #fff;
+		text-decoration:none;
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
