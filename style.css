@@ -612,6 +612,7 @@ div#header-additional .alignleft {
 footer#colophon {
   background-color: #214162;
   color: #fff;
+  padding: 1em;
 }
 footer#colophon a {
   color: #fff;
@@ -788,7 +789,7 @@ embed, iframe, object {
 }
 h3.fp_post_title a {
   color: #fff;
-  text-shadow: 1px 1px 3px #000;
+  text-shadow: 1px 1px 10px #000;
   text-decoration: none;
 }
 .fp-post-content {
