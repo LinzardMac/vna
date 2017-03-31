@@ -803,3 +803,23 @@ h2.post_boxes_title {
   clear: both;
   color: #214162;
 }
+
+/* blog pages have a sidebar */
+.single .content-area,
+.archive .content-area {
+        float: left;
+        margin: 0 -25% 0 0;
+        width: 100%;
+        padding-right: 2em;
+}
+.single .site-main,
+.archive .site-main {
+        margin: 0 25% 0 0;
+}
+.single .site-content .widget-area
+.archive .site-content .widget-area  {
+        float: right;
+        overflow: hidden;
+        width: 25%;
+}
+
