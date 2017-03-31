@@ -805,6 +805,7 @@ h2.post_boxes_title {
 }
 
 /* blog pages have a sidebar */
+.blog .content-area,
 .single .content-area,
 .archive .content-area {
         float: left;
@@ -812,10 +813,12 @@ h2.post_boxes_title {
         width: 100%;
         padding-right: 2em;
 }
+.blog .site-main,
 .single .site-main,
 .archive .site-main {
         margin: 0 25% 0 0;
 }
+.blog .site-content .widget-area,
 .single .site-content .widget-area
 .archive .site-content .widget-area  {
         float: right;
