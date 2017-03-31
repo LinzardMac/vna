@@ -244,3 +244,27 @@ acf_add_options_page(array(
 	'capability'    => 'edit_posts',
 	'redirect'      => false,
 ));
+
+/* set body class based on page family */
+
+function vna_set_body_class( $classes ) {
+	$field = get_field( 'page_topic' );
+	if ( ! $field ) {
+		return $classes;
+	}
+	switch( $field ) {
+		case 'About':
+			$classes[] = 'page_about';
+			break;
+		case 'News':
+			$classes[] = 'page_news';
+			break;
+		case 'Grants':
+			$classes[] = 'page_grants';
+			break;
+		default:
+			break;
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'vna_set_body_class' );
