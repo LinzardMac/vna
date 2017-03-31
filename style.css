@@ -833,3 +833,7 @@ h2.post_boxes_title {
      float:left;
   }
 }
+
+.ubermenu-skin-white .ubermenu-submenu.ubermenu-submenu-drop {
+    background-color: rgba(255,255,255,.9) !important;
+}
