@@ -554,6 +554,10 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+
+/*-------------------------------------------------------------
+## comment out for ubermenu
+
 .main-navigation {
 	clear: both;
 	display: block;
@@ -628,7 +632,7 @@ a:active {
 .main-navigation .current_page_ancestor > a,
 .main-navigation .current-menu-ancestor > a {
 }
-
+--------------------------------------------------------------*/
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {

@@ -125,7 +125,7 @@ function vna_scripts() {
 add_action( 'wp_enqueue_scripts', 'vna_scripts' );
 
 function theme_typekit() {
-    wp_enqueue_script( 'theme_typekit', '//use.typekit.net/fot7alu.js');
+    wp_enqueue_script( 'theme_typekit', 'https://use.typekit.net/fot7alu.js');
 }
 add_action( 'wp_enqueue_scripts', 'theme_typekit' );
 function theme_typekit_inline() {
