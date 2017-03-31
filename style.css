@@ -199,9 +199,11 @@ body, button, input, select, textarea {
   color: #214162;
 }
 .page_grants h1, .page_grants h2, .page_grants h3, .page_grants h4 {
-  color: #508087;
+  color: #3a8568;
 }
-.page_news h1, .page_news h2, .page_news h3, .page_news h4 {
+.page_news h1, .page_news h2, .page_news h3, .page_news h4,
+.single h1, .single h2, .single h3 .single h4,
+.archive h1, .archive h2, .archive h3, .archive h4 {
   color: #a8493d;
 }
 h1, h2, h3, h4 {
@@ -365,14 +367,14 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 
-a {
-  color: royalblue;
-}
-a:visited {
-  color: purple;
+a, a:visited {
+  color: #214162;
+  font-weight:bold;
+  text-decoration: none;
 }
 a:hover, a:focus, a:active {
   color: midnightblue;
+  text-decoration:underline;
 }
 a:focus {
   outline: thin dotted;
