@@ -111,7 +111,7 @@ function vna_scripts() {
 
 	wp_enqueue_script( 'vna-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:300,400,600,700' );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:300,400,600' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

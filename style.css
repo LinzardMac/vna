@@ -828,4 +828,8 @@ h2.post_boxes_title {
         overflow: hidden;
         width: 25%;
 }
-
+@media screen and (min-width: 750px) {
+  .sds_column {
+     float:left;
+  }
+}
