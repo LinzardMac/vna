@@ -360,9 +360,6 @@ big {
 	font-size: 125%;
 }
 
-.site-description {
-	font-size:1.5em;
-}
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -778,6 +775,15 @@ a:active {
 	max-width:1200px;
 	margin: 0 auto;
 	padding: 0 .5em 0 .5em;
+}
+
+.site-description {
+	font-size:1.5em;
+}
+.site-title {
+    left: -9999px;
+    top: -9999px;
+    position: absolute;
 }
 .site-content {
 	padding: 0 1em 0 1em ;
