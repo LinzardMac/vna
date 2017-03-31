@@ -51,7 +51,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 
 html {
   font-family: 'mr-eaves-xl-modern', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -215,10 +215,10 @@ h5, h6 {
 h1 {
   margin: 0.67em 0;
   font-weight: 400;
-  font-size: 2em;
+  font-size: 1.6em;
+  font-weight:bold;
 }
 h1.entry-title {
-  font-weight: bold;
 }
 p {
   margin-bottom: .5em;
@@ -585,7 +585,10 @@ div#header-additional .alignleft {
   padding: 0 .5em 0 .5em;
 }
 .site-description {
-  font-size: 1.5em;
+  font-size: 1.25em;
+  text-align:center;
+  font-family: 'Oswald', sans-serif;
+  color: #2b296b;
   clear: both;
 }
 .site-title {
@@ -758,12 +761,17 @@ embed, iframe, object {
  */
 
 .feature_box {
-  width: 45%;
-  float: left;
   position: relative;
 }
-#feature_1_box {
-  margin-right: 5%;
+@media screen and (min-width: 550px) {
+  .feature_box {
+    width: 45%;
+    float: left;
+  }
+
+  #feature_1_box {
+    margin-right: 5%;
+  }
 }
 .feature_box_title {
   position: absolute;
@@ -778,14 +786,25 @@ embed, iframe, object {
   color: #fff;
   padding: 1em;
   min-height: 5em;
-  margin-top: -.5em
+  margin-top: -.8em;
+  font-size: .8em;
 }
 .fp-post {
-  width: 30%;
-  margin-left: 1.5%;
-  margin-right: 1.5%;
-  float: left;
-  position: relative;
+  position:relative;
+}
+.fp-post-row {
+  text-align:center;
+}
+@media screen and (min-width: 750px) {
+  .fp-post-row {
+    text-align:initial;
+  }
+  .fp-post {
+    width: 30%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    float: left;
+  }
 }
 h3.fp_post_title a {
   color: #fff;
@@ -836,4 +855,13 @@ h2.post_boxes_title {
 
 .ubermenu-skin-white .ubermenu-submenu.ubermenu-submenu-drop {
     background-color: rgba(255,255,255,.9) !important;
+}
+
+/* slider */
+
+.flexslider {
+  margin-bottom: 0 !important;
+}
+.slider-save-space {
+  height: 100x;
 }
