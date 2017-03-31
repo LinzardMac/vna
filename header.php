@@ -40,11 +40,11 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 <?php
-	if( function_exists( 'ubermenu' ) ) {
-		ubermenu( 'main' , array( 'menu' => 4 ) );
-	}	else {
-			wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) );
-		}?>
+if ( function_exists( 'ubermenu' ) ) {
+	ubermenu( 'main' , array( 'menu' => 4 ) );
+} else {
+	wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) );
+}?>
 		</nav><!-- #site-navigation -->
 		<div id="header-additional">
 		<?php
@@ -53,7 +53,7 @@
 	</div>
 		<?php
 					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
+		if ( $description || is_customize_preview() ) : ?>
 						<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 					<?php
 					endif; ?>

@@ -19,23 +19,23 @@ get_header(); ?>
 
 			<?php
 			while ( have_posts() ) : the_post();
-				if( has_post_thumbnail() ) {
+				if ( has_post_thumbnail() ) {
 					?>
 					<div id="featured-image"><?php the_post_thumbnail( 'full' );?></div>
 					<?php
 				} else {
 					// if it has a special body class assigned, use the default image for it.
 					$classes = get_body_class();
-					if (in_array( 'page_about', $classes ) ) {
+					if ( in_array( 'page_about', $classes ) ) {
 						$fi = get_field( 'about_featured_image', 'option' );
 					}
-					if (in_array( 'page_grants', $classes ) ) {
+					if ( in_array( 'page_grants', $classes ) ) {
 						$fi = get_field( 'grants_featured_image', 'option' );
 					}
-					if (in_array( 'page_news', $classes ) ) {
+					if ( in_array( 'page_news', $classes ) ) {
 						$fi = get_field( 'news_featured_image', 'option' );
 					}
-					if (isset( $fi ) ) {
+					if ( isset( $fi ) ) {
 						?>
 						<div id="featured-image">
 							<?php $src_set = ' srcset ="' . wp_get_attachment_image_srcset( $fi['id'] ) . '" '; ?>
