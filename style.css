@@ -267,7 +267,24 @@ textarea {
 	font-size: 1rem;
 	line-height: 1.5;
 }
-
+.page_about h1,
+.page_about h2,
+.page_about h3,
+.page_about h4 {
+	color: #214162;
+}
+.page_grants h1,
+.page_grants h2,
+.page_grants h3,
+.page_grants h4 {
+	color: #508087;
+}
+.page_news h1,
+.page_news h2,
+.page_news h3,
+.page_news h4 {
+	color: #a8493d;
+}
 h1,
 h2,
 h3,
@@ -280,9 +297,12 @@ h6 {
 
 }
 h1 {
-	font-size: 1.5em;
 	margin: 0.67em 0;
 	font-weight:400;
+	font-size:2em;
+}
+h1.entry-title {
+	font-weight:bold;
 }
 p {
 	margin-bottom: .5em;
@@ -340,6 +360,9 @@ big {
 	font-size: 125%;
 }
 
+.site-description {
+	font-size:1.5em;
+}
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
