@@ -10,8 +10,21 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+		$classes = get_body_class();
+		$fi='';
+		if ( in_array( 'page_about', $classes ) ) {
+			$fi = 'About: ';
+		}
+		if ( in_array( 'page_grants', $classes ) ) {
+			$fi = 'Grants: ';
+		}
+		if ( in_array( 'page_news', $classes ) ) {
+			$fi = 'News: ';
+		}
+		?>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title"><span style="font-weight:normal;">' . $fi . '</span>', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
