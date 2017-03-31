@@ -19,7 +19,11 @@ get_header(); ?>
 
 			<?php
 			while ( have_posts() ) : the_post();
-
+				if( has_post_thumbnail() ) {
+					?>
+					<div id="featured-image"><?php the_post_thumbnail( 'full' );?></div>
+					<?php
+				}
 				get_template_part( 'template-parts/content', 'page' );
 
 				// If comments are open or we have at least one comment, load up the comment template.
