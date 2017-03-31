@@ -46,13 +46,18 @@
 			wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) );
 		}?>
 		</nav><!-- #site-navigation -->
-
+		<div id="header-additional">
+		<?php
+		the_field( 'wagw_header', 'option' );
+	 	?>
+	</div>
 		<?php
 					$description = get_bloginfo( 'description', 'display' );
 					if ( $description || is_customize_preview() ) : ?>
 						<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 					<?php
 					endif; ?>
+
 
 	</header><!-- #masthead -->
 
