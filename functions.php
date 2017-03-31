@@ -195,7 +195,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-function vna_get_recent_posts( $count ) {
+function vna_get_recent_posts( $count, $cats='' ) {
 	$args = array(
 		'posts_per_page' => $count,
 		'post_type' => 'post',
@@ -203,6 +203,9 @@ function vna_get_recent_posts( $count ) {
 		'order' => 'DESC',
 		'post_status' => array( 'publish' ),
 	);
+	if ( '' !=  $cats ) {
+		$args['category_name'] = $cats;
+	}
 		$q = new WP_QUERY( $args );
 		$count = 0;
 	if (	$q->have_posts() ) {

@@ -117,7 +117,7 @@ get_header(); ?>
 
 <h2 class="post_boxes_title"><?php the_field( 'post_boxes_title' ); ?></h2>
 
-<?php $recent_posts = vna_get_recent_posts( 3 ); ?>
+<?php $recent_posts = vna_get_recent_posts( 3, 'latest-news' ); ?>
 
 
 
