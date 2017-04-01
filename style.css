@@ -828,7 +828,7 @@ h2.post_boxes_title {
   clear: both;
   color: #214162;
 }
-
+@media screen and (min-width: 775px) {
 /* blog pages have a sidebar */
 .blog .content-area,
 .single .content-area,
@@ -849,6 +849,7 @@ h2.post_boxes_title {
         float: right;
         overflow: hidden;
         width: 25%;
+}
 }
 @media screen and (min-width: 750px) {
   .sds_column {
