@@ -773,6 +773,9 @@ embed, iframe, object {
     margin-right: 5%;
   }
 }
+.feature_box img {
+	width: 100%;
+}
 .feature_box_title {
   position: absolute;
   top: 1em;

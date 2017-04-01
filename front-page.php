@@ -98,14 +98,25 @@ get_header(); ?>
 	</div>
 </a>
 
-
-<a href="<?php the_field( 'box_2_link' );?>">
+<?php
+ 	$image_or_video = get_field( 'box_2_image_or_link' );
+	if ( 'Image' == $image_or_video ) {
+		echo '<a href="' . get_field( 'box_2_link' ) .'">';
+	} else {
+	 echo '<a href="' . get_field( 'box_2_youtube_link' ) .'" target=_blank>';
+	}
+	?>
 <div id="feature_2_box" class="feature_box">
 	<div class="feature_box_image">
 		<?php
-		$image = get_field( 'box_2_image' );
-		$src_set = ' srcset ="' . wp_get_attachment_image_srcset( $image['id'] ) . '" ';
-		echo '<img src="' . $image['url'] . '" ' . $src_set . '/>';
+		if ( 'Image' == $image_or_video ) {
+		  $image = get_field( 'box_2_image' );
+		  $src_set = ' srcset ="' . wp_get_attachment_image_srcset( $image['id'] ) . '" ';
+		  echo '<img src="' . $image['url'] . '" ' . $src_set . '/>';
+		} else {
+			$url = get_field( 'box_2_youtube_link' );
+		  echo '<img src="https://img.youtube.com/vi/'. youtube_id_from_url($url) . 'mqdefault.jpg">';
+		}
 		?>
 	</div>
 	<div class="feature_box_title"><?php the_field( 'box_2_title' ); ?></div>
@@ -126,6 +137,7 @@ get_header(); ?>
 			?>
 
 		</main><!-- #main -->
+
 	</div><!-- #primary -->
 
 <?php
