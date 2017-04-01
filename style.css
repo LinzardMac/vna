@@ -765,12 +765,12 @@ embed, iframe, object {
 }
 @media screen and (min-width: 550px) {
   .feature_box {
-    width: 45%;
+    width: 48%;
     float: left;
   }
 
   #feature_1_box {
-    margin-right: 5%;
+    margin-right: 4%;
   }
 }
 .feature_box img {
