@@ -142,6 +142,7 @@ if ( 'Image' == $image_or_video ) {
 
 <?php $recent_posts = vna_get_recent_posts( 3, 'healthcare-news' ); ?>
 
+<div id="fp-bottom"> <?php the_field( 'below_post_boxes' ); ?></div>
 
 
 <?php

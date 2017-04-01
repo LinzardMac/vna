@@ -798,9 +798,14 @@ embed, iframe, object {
 .fp-post-row {
   text-align:center;
 }
+div#fp-bottom {
+    margin-bottom: 2em;
+}
 @media screen and (min-width: 750px) {
   .fp-post-row {
     text-align:initial;
+    width: 100%;
+    display: inline-block;
   }
   .fp-post {
     width: 30%;
