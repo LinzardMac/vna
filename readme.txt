@@ -9,11 +9,14 @@ Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called VNA Foundation, or underscores.
+A starter theme called VNA Foundation, based on underscores from Automattic.
 
 == Description ==
 
-Hi. I'm a starter theme called VNA Foundation, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+This theme requires these plugins
+ * Ubermenu
+ * Advanced Custom Fields Pro
+ * Formidable Pro
 
 == Installation ==
 
@@ -29,7 +32,7 @@ VNA Foundation includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - April 1, 2017 =
 * Initial release
 
 == Credits ==
