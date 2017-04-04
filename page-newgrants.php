@@ -55,38 +55,26 @@ get_header(); ?>
 								'order' => 'DESC',
 								'number' => 3,
 						) );
+			
+						$posts = array();
 
-						foreach ( $terms as $aterm ) {
-							echo '<h2>Grant Date: ' . $aterm->name . '</h2>';
+						foreach ( $terms as $the_term ) {
+							echo '<h2>Grant Date: ' . $the_term->name . '</h2>';
 
-							$args = array(
-							'post_type' => 'grant',
-							'post_status' => 'publish',
-							'posts_per_page' => -1,
-							'orderby' => 'title',
-							'order' => 'ASC',
-							'tax_query' => array(
-								array(
-									'taxonomy' => 'grant_award_dates',
-									'field'    => 'name',
-									'terms'    => $aterm->name,
-								),
-							),
-							);
-							$grant_query = new WP_Query( $args );
+							$posts[$the_term->name] = get_posts(array( 'posts_per_page' => -1, 'post_type' => 'grant', 'tax_name' => $the_term->name ));
 
+						}
 
-							if ( $grant_query->have_posts() ) {
-								while ( $grant_query->have_posts() ) : $grant_query->the_post();
+						foreach($posts as $term_key => $post){
+							
+							$term_name = $term_key; 
+							setup_postdata($post); 
+							
+								get_template_part( 'template-parts/content', 'grant' );
 
-									get_template_part( 'template-parts/content', 'grant' );
-
-									// the_post_navigation();
-									endwhile; // End of the loop.
-							}
-
-							wp_reset_query();
-						} //foreach
+								// the_post_navigation();
+								endwhile; // End of the loop.
+						}
 ?>
 
 
