@@ -302,3 +302,141 @@ function youtube_id_from_url( $url ) {
 	}
 	return $video_id;
 }
+
+
+/**
+ * Grants Management stuff
+ */
+	// Register Custom Post Type
+function vna_grant() {
+
+		$labels = array(
+	  'name'                  => _x( 'Grants', 'Post Type General Name', 'vna' ),
+	  'singular_name'         => _x( 'Grant', 'Post Type Singular Name', 'vna' ),
+	  'menu_name'             => __( 'Grants', 'vna' ),
+	  'name_admin_bar'        => __( 'Grants', 'vna' ),
+	  'archives'              => __( 'Grant Archives', 'vna' ),
+	  'attributes'            => __( 'Grant Attributes', 'vna' ),
+	  'parent_item_colon'     => __( 'Parent Item:', 'vna' ),
+	  'all_items'             => __( 'All Grants', 'vna' ),
+	  'add_new_item'          => __( 'Add New Grant', 'vna' ),
+	  'add_new'               => __( 'Add New', 'vna' ),
+	  'new_item'              => __( 'New Grant', 'vna' ),
+	  'edit_item'             => __( 'Edit Grant', 'vna' ),
+	  'update_item'           => __( 'Update Grant', 'vna' ),
+	  'view_item'             => __( 'View Grant', 'vna' ),
+	  'view_items'            => __( 'View Grants', 'vna' ),
+	  'search_items'          => __( 'Search Grants', 'vna' ),
+	  'not_found'             => __( 'Not found', 'vna' ),
+	  'not_found_in_trash'    => __( 'Not found in Trash', 'vna' ),
+	  'featured_image'        => __( 'Featured Image', 'vna' ),
+	  'set_featured_image'    => __( 'Set featured image', 'vna' ),
+	  'remove_featured_image' => __( 'Remove featured image', 'vna' ),
+	  'use_featured_image'    => __( 'Use as featured image', 'vna' ),
+	  'insert_into_item'      => __( 'Insert into item', 'vna' ),
+	  'uploaded_to_this_item' => __( 'Uploaded to this item', 'vna' ),
+	  'items_list'            => __( 'Items list', 'vna' ),
+	  'items_list_navigation' => __( 'Items list navigation', 'vna' ),
+	  'filter_items_list'     => __( 'Filter items list', 'vna' ),
+	);
+	$args = array(
+	  'label'                 => __( 'Grant', 'vna' ),
+	  'description'           => __( 'VNA Grants', 'vna' ),
+	  'labels'                => $labels,
+	  'supports'              => array( 'title', 'editor' ),
+	  'taxonomies'            => array( 'grant_organizations' ),
+	  'hierarchical'          => false,
+	  'public'                => true,
+	  'show_ui'               => true,
+	  'show_in_menu'          => true,
+	  'menu_position'         => 5,
+	  'menu_icon'             => 'dashicons-admin-multisite',
+	  'show_in_admin_bar'     => true,
+	  'show_in_nav_menus'     => true,
+	  'can_export'            => true,
+	  'has_archive'           => true,
+	  'exclude_from_search'   => false,
+	  'publicly_queryable'    => true,
+	  'capability_type'       => 'page',
+	);
+	register_post_type( 'grant', $args );
+
+}
+	add_action( 'init', 'vna_grant', 0 );
+
+	// Register Custom Taxonomy
+function vna_grant_organizations() {
+
+	$labels = array(
+		'name'                       => _x( 'Organizations', 'Taxonomy General Name', 'vna' ),
+		'singular_name'              => _x( 'Organization', 'Taxonomy Singular Name', 'vna' ),
+		'menu_name'                  => __( 'Orgnizations', 'vna' ),
+		'all_items'                  => __( 'All Organizations', 'vna' ),
+		'parent_item'                => __( 'Parent Organization', 'vna' ),
+		'parent_item_colon'          => __( 'Parent Organization:', 'vna' ),
+		'new_item_name'              => __( 'New Organization', 'vna' ),
+		'add_new_item'               => __( 'Add New Organization', 'vna' ),
+		'edit_item'                  => __( 'Edit Organization', 'vna' ),
+		'update_item'                => __( 'Update Organization', 'vna' ),
+		'view_item'                  => __( 'View Organization', 'vna' ),
+		'separate_items_with_commas' => __( 'Separate organizations with commas', 'vna' ),
+		'add_or_remove_items'        => __( 'Add or remove organizations', 'vna' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'vna' ),
+		'popular_items'              => __( 'Popular Items', 'vna' ),
+		'search_items'               => __( 'Search Items', 'vna' ),
+		'not_found'                  => __( 'Not Found', 'vna' ),
+		'no_terms'                   => __( 'No items', 'vna' ),
+		'items_list'                 => __( 'Items list', 'vna' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'vna' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => false,
+	);
+	register_taxonomy( 'grant_organizations', array( 'grant' ), $args );
+
+}
+add_action( 'init', 'vna_grant_organizations', 0 );
+// Register Custom Taxonomy
+function vna_grant_award_dates() {
+
+	$labels = array(
+		'name'                       => _x( 'Award Dates', 'Taxonomy General Name', 'vna' ),
+		'singular_name'              => _x( 'Award Date', 'Taxonomy Singular Name', 'vna' ),
+		'menu_name'                  => __( 'Award Dates', 'vna' ),
+		'all_items'                  => __( 'All Award Dates', 'vna' ),
+		'parent_item'                => __( 'Parent Award Date', 'vna' ),
+		'parent_item_colon'          => __( 'Parent Award Date:', 'vna' ),
+		'new_item_name'              => __( 'New Award Date', 'vna' ),
+		'add_new_item'               => __( 'Add New Award Date', 'vna' ),
+		'edit_item'                  => __( 'Edit Award Date', 'vna' ),
+		'update_item'                => __( 'Update Award Date', 'vna' ),
+		'view_item'                  => __( 'View Award Date', 'vna' ),
+		'separate_items_with_commas' => __( 'Separate Award Dates with commas', 'vna' ),
+		'add_or_remove_items'        => __( 'Add or remove organizations', 'vna' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'vna' ),
+		'popular_items'              => __( 'Popular Items', 'vna' ),
+		'search_items'               => __( 'Search Items', 'vna' ),
+		'not_found'                  => __( 'Not Found', 'vna' ),
+		'no_terms'                   => __( 'No items', 'vna' ),
+		'items_list'                 => __( 'Items list', 'vna' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'vna' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => false,
+	);
+	register_taxonomy( 'grant_award_dates', array( 'grant' ), $args );
+
+}
+add_action( 'init', 'vna_grant_award_dates', 0 );
