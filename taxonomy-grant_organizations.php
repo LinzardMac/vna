@@ -16,9 +16,10 @@ get_header(); ?>
 		if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
+				  <h1  class="page-title"> Grants To: <?php echo str_replace( 'Organization: ', '', get_the_archive_title() ); ?>, <?php echo get_field( 'organization_city' ) . ', ' . get_field( 'organization_state'); ?> </h1>
+					<?php
+					echo '<h3 classs="organization_website_url"><a target=_blank href="http://' . get_field( 'organization_website_url' ) . '">' . get_field( 'organization_website_url' ) . '</a></h3>';
+					// the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
@@ -31,7 +32,7 @@ get_header(); ?>
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				get_template_part( 'template-parts/content', 'grant' );
 
 			endwhile;
 
