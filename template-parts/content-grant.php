@@ -26,6 +26,9 @@
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
 			echo '<p> Amount awarded: ' . get_field( 'grant_amount') . '<br>';
+
+			$org_terms = get_the_terms( get_the_ID(), 'grant_organizations' );
+			echo 'Organization: <a href="/grant_organizations/'. $org_terms[0]->slug . '">' . $org_terms[0]->name . '</a><br>';
 			$terms = get_the_terms( get_the_ID(), 'grant_award_dates' );
 			echo 'Award Date: <a href="/grant_award_dates/' .$terms[0]->slug . '">' . date( 'F n, Y', strtotime( $terms[0]->name ) ) . '</a></p>';
 

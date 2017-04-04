@@ -440,20 +440,3 @@ function vna_grant_award_dates() {
 
 }
 add_action( 'init', 'vna_grant_award_dates', 0 );
-
-/*
- * returns the URL for the most recently awarded grants
- * for use on the menu
- */
- 
-function vna_get_recent_grants() {
-	$terms = get_terms( array(
-    'taxonomy' => 'grant_award_dates',
-    'hide_empty' => true,
-		'orderby' => 'title',
-		'order' => 'DESC',
-		number => 1,
-) );
-  return  esc_url( home_url( '/' ) ) . 'grant_award_dates/' . $terms[0]->slug . '/';
-}
-add_shortcode ('recent-grants', 'vna_get_recent_grants' );
