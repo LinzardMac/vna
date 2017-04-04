@@ -56,10 +56,10 @@ get_header(); ?>
 								'number' => 3,
 						) );
 
-						foreach ($terms as $aterm ) {
+						foreach ( $terms as $aterm ) {
 							echo '<h2>Grant Date: ' . $aterm->name . '</h2>';
 
-						$args = array(
+							$args = array(
 							'post_type' => 'grant',
 							'post_status' => 'publish',
 							'posts_per_page' => -1,
@@ -72,21 +72,21 @@ get_header(); ?>
 									'terms'    => $aterm->name,
 								),
 							),
-						);
-						$grant_query = new WP_Query( $args );
+							);
+							$grant_query = new WP_Query( $args );
 
 
-						if ( $grant_query->have_posts() ) {
-							while ( $grant_query->have_posts() ) : $grant_query->the_post();
+							if ( $grant_query->have_posts() ) {
+								while ( $grant_query->have_posts() ) : $grant_query->the_post();
 
-								get_template_part( 'template-parts/content', 'grant' );
+									get_template_part( 'template-parts/content', 'grant' );
 
-								// the_post_navigation();
-							endwhile; // End of the loop.
-						}
+									// the_post_navigation();
+									endwhile; // End of the loop.
+							}
 
-						wp_reset_query();
-					} //foreach
+							wp_reset_query();
+						} //foreach
 ?>
 
 
